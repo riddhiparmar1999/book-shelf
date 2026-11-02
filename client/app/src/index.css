@@ -1,0 +1,87 @@
+:root {
+  --cyan: #bcf4f5;
+  --mint: #b4ebca;
+  --lime: #d9f2b4;
+  --pale: #d3fac7;
+  --salmon: #ef959d;
+  --orange: #df9a57;
+  --charcoal: #444545;
+
+  --ink: #444545;
+  --muted: rgba(68, 69, 69, 0.65);
+  --paper: #f4f7f5;
+  --surface: #ffffff;
+  --line: rgba(68, 69, 69, 0.12);
+  --accent: #df9a57;
+  --accent-hover: #c88645;
+  --accent-soft: rgba(223, 154, 87, 0.16);
+  --danger: #c45c66;
+  --danger-soft: rgba(239, 149, 157, 0.22);
+  --sidebar: #bcf4f5;
+  --sidebar-active: #b4ebca;
+  --shadow: 0 1px 2px rgba(68, 69, 69, 0.06);
+
+  --sans: "Outfit", sans-serif;
+  --display: "Fraunces", Georgia, serif;
+
+  font: 16px/1.5 var(--sans);
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background:
+    radial-gradient(ellipse 70% 45% at 0% 0%, rgba(188, 244, 245, 0.55), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 100% 0%, rgba(217, 242, 180, 0.45), transparent 50%),
+    linear-gradient(180deg, #eef8f4 0%, var(--paper) 45%, #e8f0ea 100%);
+  background-attachment: fixed;
+}
+
+#root {
+  width: 100%;
+  margin: 0;
+  min-height: 100svh;
+}
+
+.app {
+  width: min(920px, 100%);
+  margin: 0 auto;
+  padding: 40px 20px 64px;
+}
+
+.app--auth {
+  width: min(920px, 100%);
+}
+
+.app--shell {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  min-height: 100svh;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}

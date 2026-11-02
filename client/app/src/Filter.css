@@ -1,0 +1,223 @@
+.filter {
+  margin-bottom: 20px;
+  animation: rise 0.55s ease 0.1s both;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+}
+
+.filter__header {
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.filter--open .filter__header {
+  margin-bottom: 14px;
+}
+
+.filter__header .panel__title {
+  margin-bottom: 0;
+}
+
+.filter__header__left {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.filter__toggle {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.filter__toggle:hover {
+  border-color: var(--accent);
+  background: var(--lime);
+}
+
+/* Smooth open/close: animate grid row from 0fr → 1fr */
+.filter__body {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.35s ease,
+    opacity 0.25s ease;
+}
+
+.filter__body--open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.filter__body-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.filter__hint {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.filter__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.filter__search {
+  grid-column: 1 / -1;
+}
+
+.filter__label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+
+.filter__range {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter__range input {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  padding: 10px 12px;
+  border-radius: 2px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filter__range input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.filter__range-sep {
+  color: var(--muted);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.filter__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.filter__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(31, 111, 91, 0.25);
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 4px 8px;
+  border-radius: 2px;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.filter__chip:hover {
+  background: rgba(31, 111, 91, 0.18);
+}
+
+.filter__actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.multi-select {
+  position: relative;
+}
+
+.multi-select__trigger {
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  padding: 10px 12px;
+  border-radius: 2px;
+  font: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.multi-select__trigger:hover,
+.multi-select__trigger[aria-expanded="true"] {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.multi-select__menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 24px rgba(28, 42, 36, 0.12);
+}
+
+.multi-select__option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  cursor: pointer;
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+
+.multi-select__option:hover {
+  background: var(--accent-soft);
+}
+
+.multi-select__option input {
+  width: auto;
+  accent-color: var(--accent);
+}
+
+@media (max-width: 640px) {
+  .filter__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filter__actions {
+    flex-direction: column-reverse;
+  }
+
+  .filter__actions .btn {
+    width: 100%;
+  }
+}
